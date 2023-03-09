@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const { ContentType } = require("../../database/models");
 const { HTTPError } = require("../utils/errors.js");
 const { Entities } = require("../../database/models");
@@ -92,6 +93,47 @@ const createEntityField = async (contentId, data) => {
   return fields;
 };
 
+const deleteEntityField = async (contentId, data) => {
+  data = data.field;
+  const ids = await Entities.findAll({
+    where: {
+      contentId: contentId,
+    },
+    attributes: ["id"],
+  });
+  let entityData = {};
+  const idsArray = ids.map((id) => id.id);
+  idsArray.forEach(async (id) => {
+    let entity = await Entities.findOne({
+      where: {
+        id: id,
+      },
+    });
+    entityData = { ...entity.entityFields };
+    console.log("entityData", entityData);
+    delete entityData[data];
+    await Entities.update(
+      { entityFields: entityData },
+      {
+        where: {
+          id: id,
+        },
+        returning: true,
+      }
+    );
+  });
+  const entity = await Entities.findOne({
+    where: {
+      id: idsArray[0],
+    },
+  });
+  entityData = entity.entityFields;
+  console.log("entityData", entityData);
+  const fields = Object.keys(entityData);
+
+  return fields;
+};
+
 const updateEntityById = async (id, data) => {
   const result = await Entities.update(data, {
     where: {
@@ -113,4 +155,5 @@ module.exports = {
   createEntityField,
   updateEntityById,
   getAllEntitiesFields,
+  deleteEntityField,
 };

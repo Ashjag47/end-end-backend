@@ -33,6 +33,21 @@ const getAllEntitiesFields = async (req, res) => {
   }
 };
 
+const deleteEntityField = async (req, res) => {
+  try {
+    const contentId = req.params.contentId;
+    const data = req.body;
+    await entitiesServices.deleteEntityField(contentId, data);
+    res.status(204).send({ msg: "Deleted all entities" });
+  } catch (err) {
+    if (err instanceof HTTPError) {
+      res.status(err.statusCode).send({ msg: err.message });
+    } else {
+      res.status(500).send({ msg: err.message });
+    }
+  }
+};
+
 const createEntity = async (req, res) => {
   try {
     const data = req.body;
@@ -113,4 +128,5 @@ module.exports = {
   createEntityField,
   updateEntityById,
   getAllEntitiesFields,
+  deleteEntityField,
 };

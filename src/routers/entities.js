@@ -6,7 +6,8 @@ router
   .route("/")
   .get(entitiesController.getAllEntities)
   .post(entitiesController.createEntity)
-  .put(entitiesController.createEntityField);
+  .put(entitiesController.createEntityField)
+  .delete(entitiesController.deleteEntityField);
 router
   .route("/:entityId")
   .get(entitiesController.getEntityById)
