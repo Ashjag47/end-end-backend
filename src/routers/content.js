@@ -11,6 +11,7 @@ router.put("/:contentId", contentController.updateContent);
 router.delete("/:contentId", contentController.deleteContent);
 
 router.route("/:contentId/fields").get(entitiesController.getAllEntitiesFields);
+router.route("/:contentId/fields").put(contentController.updateEntityFields);
 
 router.use("/:contentId/entities", entitiesRoutes);
 

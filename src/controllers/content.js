@@ -49,6 +49,22 @@ const updateContent = async (req, res) => {
   }
 };
 
+const updateEntityFields = async (req, res) => {
+  try {
+    const contentId = req.params.contentId;
+    const data = req.body;
+    const entitiesFields = await contentService.updateEntityFields(
+      contentId,
+      data
+    );
+    res.status(200).send(entitiesFields);
+  } catch (err) {
+    if (err instanceof HTTPError)
+      return res.status(err.statusCode).json({ message: err.message });
+    res.status(500).json({ message: err.message });
+  }
+};
+
 const deleteContent = async (req, res) => {
   try {
     await contentService.deleteContent(req.params.contentId);
@@ -66,4 +82,5 @@ module.exports = {
   getContentById,
   updateContent,
   deleteContent,
+  updateEntityFields,
 };
