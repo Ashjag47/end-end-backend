@@ -1,17 +1,17 @@
 const { HTTPError } = require("../utils/errors");
 const axios = require("axios");
-const Joi = require("joi");
+// const Joi = require("joi");
 
-const tokenSchema = Joi.object({
-  token: Joi.string().required(),
-});
+// const tokenSchema = Joi.object({
+//   token: Joi.string().required(),
+// });
 
 const tokenValidation = async (req, res, next) => {
   try {
     const token = req.headers.authorization;
     console.log("token7000", token);
-    const { error } = tokenSchema.validate({ token });
-    if (error) throw new HTTPError(400, error.details[0].message);
+    // const { error } = tokenSchema.validate({ token });
+    // if (error) throw new HTTPError(400, error.details[0].message);
     const verifyToken = await axios.post(
       "http://localhost:4000/auth/token/validate",
       { token: token },

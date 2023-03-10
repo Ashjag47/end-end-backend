@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "end-end-contenttype",
-    "dateExported": "2023-03-09T09:39:55.002Z",
+    "dateExported": "2023-03-10T12:31:57.399Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -10,12 +10,17 @@
             "colId": "9da5ed16-2f8e-4dde-af12-1bd818895f82",
             "containerId": "",
             "name": "get_all_contents",
-            "url": "http://localhost:3001/content/",
+            "url": "http://localhost:3001/content",
             "method": "GET",
             "sortNum": 10000,
             "created": "2023-03-09T09:35:04.454Z",
-            "modified": "2023-03-09T09:35:16.106Z",
-            "headers": [],
+            "modified": "2023-03-09T22:56:01.556Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsImlhdCI6MTY3ODQwMjU0MSwiZXhwIjoxNjc4NDA2MTQxfQ.uAlFQEs4PcQ3jleKU8UVN5P2qN1l7ZywCU_UZYOTDgw"
+                }
+            ],
             "params": [],
             "tests": []
         },
@@ -24,12 +29,17 @@
             "colId": "9da5ed16-2f8e-4dde-af12-1bd818895f82",
             "containerId": "",
             "name": "get_content_by_id",
-            "url": "http://localhost:3001/content/2",
+            "url": "http://localhost:3001/content/4",
             "method": "GET",
             "sortNum": 20000,
             "created": "2023-03-09T09:35:42.289Z",
-            "modified": "2023-03-09T09:37:06.301Z",
-            "headers": [],
+            "modified": "2023-03-09T14:00:05.074Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsImlhdCI6MTY3ODM2OTMyNiwiZXhwIjoxNjc4MzcyOTI2fQ.-SZPjFFlIyvI2vr7HCWgMZyGN3xGJRMW8x_dvvsJ2nQ"
+                }
+            ],
             "params": [],
             "tests": []
         },
@@ -42,12 +52,17 @@
             "method": "POST",
             "sortNum": 30000,
             "created": "2023-03-09T09:36:21.307Z",
-            "modified": "2023-03-09T09:36:45.281Z",
-            "headers": [],
+            "modified": "2023-03-09T23:31:17.969Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsImlhdCI6MTY3ODQwNDY1NiwiZXhwIjoxNjc4NDA4MjU2fQ.oQ-B1r9oWmx3YZRPXlzKWIOxmLSHoef56IuM3aEZhpg"
+                }
+            ],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\":\"Comp\"\n}",
+                "raw": "{\n  \"name\":\"profile\"\n}",
                 "form": []
             },
             "tests": []
@@ -57,12 +72,17 @@
             "colId": "9da5ed16-2f8e-4dde-af12-1bd818895f82",
             "containerId": "",
             "name": "delete_content_by_id",
-            "url": "http://localhost:3001/content/2",
+            "url": "http://localhost:3001/content/4",
             "method": "DELETE",
             "sortNum": 40000,
             "created": "2023-03-09T09:37:36.321Z",
-            "modified": "2023-03-09T09:38:13.031Z",
-            "headers": [],
+            "modified": "2023-03-09T21:58:42.585Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsImlhdCI6MTY3ODM5OTA3MywiZXhwIjoxNjc4NDAyNjczfQ.6yaFeZoH4WrgaGaP2_dUvY5heCTUpNYux64t2Qf2eVM"
+                }
+            ],
             "params": [],
             "tests": []
         },

@@ -37,8 +37,11 @@ const deleteEntityField = async (req, res) => {
   try {
     const contentId = req.params.contentId;
     const data = req.body;
-    await entitiesServices.deleteEntityField(contentId, data);
-    res.status(204).send({ msg: "Deleted all entities" });
+    const entitiesFields = await entitiesServices.deleteEntityField(
+      contentId,
+      data
+    );
+    res.status(204).send(entitiesFields);
   } catch (err) {
     if (err instanceof HTTPError) {
       res.status(err.statusCode).send({ msg: err.message });
